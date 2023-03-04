@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 const BotResponse = ({ response }) => {
   const [botResoponse, setBotResponse] = useState("");
@@ -17,7 +18,9 @@ const BotResponse = ({ response }) => {
 
   return (
     <pre>
-      {botResoponse}
+      <ReactMarkdown>
+        {botResoponse}
+      </ReactMarkdown>
       {botResoponse === response ? "" : "|"}
     </pre>
   );
