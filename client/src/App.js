@@ -21,7 +21,7 @@ function App() {
     setChatLog([...chatLog, { chatPrompt: inputPrompt }]);
     async function callAPI() {
       try {
-        const response = await fetch("https://talk-bot.onrender.com/", {
+        const response = await fetch("http://localhost:4000", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: inputPrompt }),

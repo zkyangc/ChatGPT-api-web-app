@@ -19,13 +19,15 @@ app.use(cors());
 
 app.post("/", async (req, res) => {
   const { message } = req.body;
-  const response = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: message,
+  //console.log("message", message);
+  const response = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [{role: "user", content: message}],
     max_tokens: 3000,
     temperature: 0.3,
   });
-  res.json({ botResponse: response.data.choices[0].text });
+  console.log("response", response.data);
+  res.json({ botResponse: response.data.choices[0].message.content });
 });
 
 app.listen(port, () => {
