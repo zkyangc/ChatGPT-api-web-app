@@ -1,4 +1,4 @@
 .env
-server-go/tmp
-server-go/db/dbml-error.log
-server-go/db/database.db
+./tmp/*
+internal/db/database.db
+.gitignore
