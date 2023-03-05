@@ -7,6 +7,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	_ "github.com/gofiber/jwt/v3"
+	_ "github.com/golang-jwt/jwt/v4"
 	"github.com/joho/godotenv"
 	openai "github.com/sashabaranov/go-openai"
 )
@@ -37,8 +39,11 @@ func main() {
 	app := fiber.New()
 	// todo: ban cors and use react proxy
 	app.Use(cors.New())
-	api_key := goDotEnvVariable("OPENAI_API_KEY")
-	openaiclient := openai.NewClient(api_key)
+	apiKey := goDotEnvVariable("OPENAI_API_KEY")
+	openaiclient := openai.NewClient(apiKey)
+
+	// Secret key for JWT signing
+	//jwtSecretkey := goDotEnvVariable("JWT_SECRET_KEY")
 
 	app.Post("/", func(c *fiber.Ctx) error {
 		payload := RequestBody{}
