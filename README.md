@@ -1,9 +1,11 @@
 # TODO
-* code wrapper Ui
-* switch to go
-* adding chat session on cache? 
+* code block Ui
+* reserve \n within prompt
+* adding chat session db? 
 * continuous stream api if not already implemented
-* authetication and user limit
+* authetication and user tokens limit
+* play with the got api parameters
+* update the instructions on this readme page
 
 # Talkbot App
 A conversational AI app inspired by OpenAI's GPT-3 language model, built with Create React App.
